@@ -1,0 +1,152 @@
+.logo {
+  height: 2.2rem;
+  width: auto;
+}
+.darkHeader {
+  background-color: #2e2e2e;
+  --background: #2e2e2e;
+}
+.slide {
+  height: 50%;
+  padding: 10px;
+}
+
+s,
+strike {
+  text-decoration: none;
+  position: relative;
+}
+s::before,
+strike::before {
+  top: 50%; /*tweak this to adjust the vertical position if it's off a bit due to your font family */
+  background: red; /*this is the color of the line*/
+  opacity: 0.7;
+  content: '';
+  width: 110%;
+  position: absolute;
+  height: 0.3em;
+  border-radius: 0.1em;
+  left: -5%;
+  white-space: nowrap;
+  display: block;
+  transform: rotate(-15deg);
+}
+s.straight::before,
+strike.straight::before {
+  transform: rotate(0deg);
+  left: -1%;
+  width: 102%;
+}
+
+.margin-auto {
+  margin: 0 auto;
+}
+
+.custom-icon {
+  width: 30px;
+}
+//reviews
+
+.review-img {
+  width: 75px;
+  height: auto;
+}
+.reviews-background {
+  background-image: url('/assets/images/backgroundReviews.png');
+  height: 410px;
+  background-repeat: no-repeat;
+}
+.reviews {
+  ion-card {
+    min-height: 250px;
+  }
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #00cc88;
+  }
+  div.swiper-scrollbar-drag {
+    background: #00cc88;
+  }
+}
+
+//Short Videos
+.short-videos {
+  span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+    background: #ff3366;
+  }
+  div.swiper-scrollbar-drag {
+    background: #ff3366;
+  }
+  ion-slide {
+    margin-bottom: 3rem;
+    min-height: 150px;
+    max-width: 350px;
+    ion-card-content {
+      min-height: 55px;
+    }
+  }
+}
+
+//Footer
+.footer {
+  border-top: 1px solid #f9f9f9;
+  color: #f9f9f9;
+  div {
+    margin: 0 auto;
+    text-align: left;
+    p {
+      margin: 4px;
+    }
+  }
+}
+
+//Copyright
+.copyright {
+  padding: 10px;
+}
+
+//transformation
+.back-img {
+  width: 90%;
+}
+@media (min-width: 600px) {
+  .back-img {
+    width: 50%;
+  }
+}
+
+//login form
+.login-form {
+  ion-input {
+    --background: '#fff';
+    background-color: #fff;
+    border-radius: 10px;
+    --padding-start: 10px;
+  }
+  .center-login {
+    margin: 0 auto;
+  }
+}
+
+//Community
+.image-width {
+  width: 94%;
+}
+
+//toggle
+
+ion-lable {
+  color: #fff;
+}
+
+ion-toggle {
+  --background: #fff;
+  --background-checked: #7c7c7c;
+
+  --handle-background: #7c7c7c;
+  --handle-background-checked: #fff;
+}
+
+.middle {
+  position: fixed;
+  top: 25%;
+}

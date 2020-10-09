@@ -44,6 +44,7 @@ import {
 	IAppCurrentActions,
 	setLoading,
 } from './store/actions/appCurrentActions';
+import Alert from './components/shared/Alert';
 
 const App: React.FC = () => {
 	const { loading, login } = useSelector((state: AppState) => state.appCurrent);
@@ -68,6 +69,7 @@ const App: React.FC = () => {
 				message={'Please wait...'}
 				//duration={20000}
 			/>
+			<Alert />
 			<IonReactRouter>
 				<IonSplitPane contentId='main' disabled={true}>
 					<Menu />

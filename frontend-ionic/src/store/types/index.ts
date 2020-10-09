@@ -33,5 +33,14 @@ export type SET_LOGIN = typeof SET_LOGIN;
 
 export const CHECK_CURRENT_USER = 'CHECK_CURRENT_USER';
 export type CHECK_CURRENT_USER = typeof CHECK_CURRENT_USER;
+//Alerts
+export const SET_ALERT = 'SET_ALERT';
+export type SET_ALERT = typeof SET_ALERT;
+
+export const ADD_ALERT_TO_LIST = 'ADD_ALERT_TO_LIST';
+export type ADD_ALERT_TO_LIST = typeof ADD_ALERT_TO_LIST;
+
+export const REMOVE_ALERT_FROM_LIST = 'REMOVE_ALERT_FROM_LIST';
+export type REMOVE_ALERT_FROM_LIST = typeof REMOVE_ALERT_FROM_LIST;
 
 export default Types;

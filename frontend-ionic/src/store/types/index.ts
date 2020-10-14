@@ -43,4 +43,17 @@ export type ADD_ALERT_TO_LIST = typeof ADD_ALERT_TO_LIST;
 export const REMOVE_ALERT_FROM_LIST = 'REMOVE_ALERT_FROM_LIST';
 export type REMOVE_ALERT_FROM_LIST = typeof REMOVE_ALERT_FROM_LIST;
 
+export interface IEditState{
+    id:string;
+    route:string;
+    component:React.FC;
+    backLink:string;
+}
+
+//Edit
+export const SET_EDIT = 'SET_EDIT';
+export type SET_EDIT = typeof SET_EDIT;
+
+
 export default Types;
+  

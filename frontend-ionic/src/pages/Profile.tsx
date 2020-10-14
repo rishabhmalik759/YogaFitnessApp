@@ -1,12 +1,12 @@
 import {
-	IonButton,
-	IonButtons,
-	IonContent,
-	IonHeader,
-	IonMenuButton,
-	IonPage,
-	IonTitle,
-	IonToolbar,
+  IonButton,
+  IonButtons,
+  IonContent,
+  IonHeader,
+  IonMenuButton,
+  IonPage,
+  IonTitle,
+  IonToolbar,
 } from '@ionic/react';
 
 import React, { Dispatch, Fragment } from 'react';
@@ -20,21 +20,17 @@ import { useDispatch } from 'react-redux';
 import { IAlertActions, setAlert } from '../store/actions/alertActions';
 import { IAlert } from '../store/reducers/alertReducer';
 const Profile: React.FC = () => {
-    
+  return (
+    <IonPage>
+      <Header />
 
-	return (
-		<IonPage>
-			<Header />
-			
-			
-			<IonContent fullscreen>
-				<Fragment>
-				
-					<ProfileInformation />
-				</Fragment>
-			</IonContent>
-		</IonPage>
-	);
+      <IonContent fullscreen>
+        <Fragment>
+          <ProfileInformation />
+        </Fragment>
+      </IonContent>
+    </IonPage>
+  );
 };
 
 export default Profile;

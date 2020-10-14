@@ -12,20 +12,21 @@ import {
   IonListHeader,
   IonPopover,
   IonText,
-} from "@ionic/react";
+} from '@ionic/react';
 import {
   addCircle,
   archive,
   caretDownCircleOutline,
   caretUpCircleOutline,
   pencil,
-} from "ionicons/icons";
+} from 'ionicons/icons';
 
-import React, { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
-import { AppState } from "../../store/reducers";
-
+import React, { Dispatch, Fragment, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useHistory } from 'react-router-dom';
+import { IEditActions, setEditPage } from '../../store/actions/editActions';
+import { AppState } from '../../store/reducers';
+import { editObjects } from '../../pages/Edit';
 const PersonalInformation: React.FC = () => {
   const {
     name,
@@ -51,6 +52,8 @@ const PersonalInformation: React.FC = () => {
   const [showCurrentDisorders, setShowCurrentDisorders] = useState(false);
   const [showWorkoutHistory, setShowWorkoutHistory] = useState(false);
   const [showDisordersHistory, setShowDisordersHistory] = useState(false);
+  const editDispatch = useDispatch<Dispatch<IEditActions>>();
+
   const history = useHistory();
 
   const handleEdit = () => {
@@ -58,7 +61,24 @@ const PersonalInformation: React.FC = () => {
       event: undefined,
       open: false,
     });
-    history.push("/dashboard/profile/edit");
+    history.push('/dashboard/profile/edit');
+  };
+
+  const handleProfileEdit = () => {
+    setShowPopover({
+      event: undefined,
+      open: false,
+    });
+    editDispatch(setEditPage(editObjects.editProfileObj));
+    history.push(editObjects.editProfileObj.uri);
+  };
+  const handleWorkoutEdit = () => {
+    setShowPopover({
+      event: undefined,
+      open: false,
+    });
+    editDispatch(setEditPage(editObjects.editWorkoutObj));
+    history.push(editObjects.editWorkoutObj.uri);
   };
 
   return (
@@ -81,7 +101,7 @@ const PersonalInformation: React.FC = () => {
                 >
                   <IonIcon size="small" icon={pencil} />
                 </IonFabButton>
-              </IonFab>{" "}
+              </IonFab>{' '}
             </IonButtons>
           </div>
           <div className="left-align">
@@ -177,7 +197,7 @@ const PersonalInformation: React.FC = () => {
               </IonListHeader>
               <div
                 className={
-                  showCurrentDisorders ? `expand-wrapper` : "collapsed"
+                  showCurrentDisorders ? `expand-wrapper` : 'collapsed'
                 }
               >
                 <IonItem lines="inset">
@@ -273,7 +293,7 @@ const PersonalInformation: React.FC = () => {
               </IonListHeader>
               <div
                 className={
-                  showDisordersHistory ? `expand-wrapper` : "collapsed"
+                  showDisordersHistory ? `expand-wrapper` : 'collapsed'
                 }
               >
                 <IonItem lines="inset">
@@ -340,7 +360,7 @@ const PersonalInformation: React.FC = () => {
                 ></IonIcon>
               </IonListHeader>
               <div
-                className={showWorkoutHistory ? "expand-wrapper" : "collapsed"}
+                className={showWorkoutHistory ? 'expand-wrapper' : 'collapsed'}
               >
                 <IonItem lines="inset">
                   <IonLabel>
@@ -388,13 +408,10 @@ const PersonalInformation: React.FC = () => {
                 <IonListHeader>
                   <strong>Profile Options</strong>
                 </IonListHeader>
-                <IonItem button onClick={handleEdit}>
+                <IonItem button onClick={handleProfileEdit}>
                   Complete Profile
                 </IonItem>
-                <IonItem
-                  button
-                  onClick={() => history.push("/dashboard/disorders/edit")}
-                >
+                <IonItem button onClick={handleWorkoutEdit}>
                   Add Disorder
                 </IonItem>
                 <IonItem button>Edit Profile</IonItem>
@@ -402,7 +419,7 @@ const PersonalInformation: React.FC = () => {
                   lines="none"
                   detail={false}
                   button
-                  onClick={(e) =>
+                  onClick={() =>
                     setShowPopover({ open: false, event: undefined })
                   }
                 >

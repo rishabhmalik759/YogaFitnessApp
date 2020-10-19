@@ -1,15 +1,5 @@
-import {
-  IonBackButton,
-  IonButtons,
-  IonHeader,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
-import { useHistory } from 'react-router-dom';
-import DashboardTopBar from '../components/shared/DashboardTopBar';
+import { IonPage } from '@ionic/react';
 import React from 'react';
-import { useParams } from 'react-router';
 import EditProfile, { editProfileObj } from '../components/edit/EditProfile';
 import EditWorkout, { editWorkoutObj } from '../components/edit/EditWorkout';
 import { useSelector } from 'react-redux';

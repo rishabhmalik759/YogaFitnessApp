@@ -1,22 +1,13 @@
 import {
-  IonButton,
   IonButtons,
-  IonCard,
-  IonCardContent,
-  IonContent,
   IonHeader,
-  IonIcon,
-  IonItem,
-  IonLabel,
   IonMenuButton,
   IonTitle,
   IonToolbar,
 } from '@ionic/react';
-import { pin } from 'ionicons/icons';
 
 import React, { Fragment } from 'react';
 import DashboardTopBar from '../shared/DashboardTopBar';
-import ExploreContainer from '../shared/ExploreContainer';
 
 const Header: React.FC = () => {
   return (

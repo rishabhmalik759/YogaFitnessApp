@@ -23,7 +23,7 @@ import {
 
 import React, { Dispatch, Fragment, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { IEditActions, setEditPage } from '../../store/actions/editActions';
 import { AppState } from '../../store/reducers';
 import { editObjects } from '../../pages/Edit';
@@ -31,10 +31,8 @@ const PersonalInformation: React.FC = () => {
   const {
     name,
     avatar,
-    email,
     weight,
     height,
-    type,
     sex,
     age,
     bmi,
@@ -55,14 +53,6 @@ const PersonalInformation: React.FC = () => {
   const editDispatch = useDispatch<Dispatch<IEditActions>>();
 
   const history = useHistory();
-
-  const handleEdit = () => {
-    setShowPopover({
-      event: undefined,
-      open: false,
-    });
-    history.push('/dashboard/profile/edit');
-  };
 
   const handleProfileEdit = () => {
     setShowPopover({
@@ -87,7 +77,7 @@ const PersonalInformation: React.FC = () => {
         <IonCard className="p-0 background-light border-light">
           <div className="profile-background"> </div>
           <div className="card ml-4 profile-photo">
-            <img src={avatar}></img>
+            <img src={avatar} alt="avatar"></img>
           </div>
 
           <div className="edit-profile-button">
@@ -116,23 +106,27 @@ const PersonalInformation: React.FC = () => {
             <IonList className="profile-list p-0">
               <IonItem lines="inset">
                 <IonLabel>BMI</IonLabel>
-                <IonBadge color="primary">23</IonBadge>
+                <IonBadge color="primary">{bmi}</IonBadge>
               </IonItem>
               <IonItem lines="inset">
                 <IonLabel>Age</IonLabel>
-                <IonBadge color="primary">27</IonBadge>
+                <IonBadge color="primary">{age}</IonBadge>
               </IonItem>
               <IonItem lines="inset">
                 <IonLabel>Height</IonLabel>
-                <IonBadge color="primary">183 CM</IonBadge>
+                <IonBadge color="primary">{height} CM</IonBadge>
               </IonItem>
               <IonItem lines="inset">
                 <IonLabel>Weight</IonLabel>
-                <IonBadge color="primary">85 KG</IonBadge>
+                <IonBadge color="primary">{weight} KG</IonBadge>
               </IonItem>
               <IonItem lines="inset">
                 <IonLabel>Sex</IonLabel>
-                <IonBadge color="primary">Male</IonBadge>
+                <IonBadge color="primary">{sex}</IonBadge>
+              </IonItem>
+              <IonItem lines="inset">
+                <IonLabel>Country</IonLabel>
+                <IonBadge color="primary">{country}</IonBadge>
               </IonItem>
             </IonList>
           </IonCard>

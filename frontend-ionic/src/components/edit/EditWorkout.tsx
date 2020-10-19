@@ -3,7 +3,6 @@ import {
   IonButtons,
   IonContent,
   IonHeader,
-  IonPage,
   IonTitle,
   IonToolbar,
 } from '@ionic/react';

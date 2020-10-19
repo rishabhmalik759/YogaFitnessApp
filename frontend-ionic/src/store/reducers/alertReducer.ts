@@ -1,6 +1,4 @@
 import * as types from '../types';
-import { Reducer } from 'react';
-import { ToastButton } from '@ionic/react';
 
 export interface IAlertState {
     alerts:IAlert[];
@@ -49,7 +47,7 @@ export const alertReducer = (
           (alert) => alert.id !== payload.id
         );
         return { ...state, alerts: tempAlerts };
-      }
+      } return state;
     default:
       return state;
   }

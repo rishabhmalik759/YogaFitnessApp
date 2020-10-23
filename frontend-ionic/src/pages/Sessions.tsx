@@ -1,41 +1,22 @@
-import {
-  IonButtons,
-  IonContent,
-  IonHeader,
-  IonMenuButton,
-  IonPage,
-  IonTitle,
-  IonToolbar,
-} from '@ionic/react';
+import { IonContent, IonPage } from '@ionic/react';
 
 import React from 'react';
 import ExploreContainer from '../components/shared/ExploreContainer';
 import './Page.scss';
-import DashboardTopBar from '../components/shared/DashboardTopBar';
+import HeaderDashboard from '../components/shared/HeaderDashboard';
 
-const Page: React.FC = () => {
+const Sessions: React.FC = () => {
   return (
     <IonPage>
-      <IonHeader>
-        <DashboardTopBar />
-        <IonToolbar className="background-grey ">
-          <IonButtons slot="start">
-            <IonMenuButton />
-          </IonButtons>
-          <IonTitle>Sessions New</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <React.Fragment>
+        <HeaderDashboard title="Sessions" />
 
-      <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">Sessions New</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <ExploreContainer name="Sessions" />
-      </IonContent>
+        <IonContent fullscreen>
+          <ExploreContainer name="Sessions" />
+        </IonContent>
+      </React.Fragment>
     </IonPage>
   );
 };
 
-export default Page;
+export default Sessions;

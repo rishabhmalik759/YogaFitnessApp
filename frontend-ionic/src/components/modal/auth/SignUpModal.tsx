@@ -146,7 +146,7 @@ const SignUpModal = () => {
             alt="MYogi Logo"
             src="/assets/images/logoWhite.png"
           ></IonImg>
-          <p className="center mb-3">Get fit at home through Yoga</p>
+          <p className="center mb-3 text-grey">Get fit at home through Yoga</p>
         </div>
       </IonContent>
     </Fragment>

@@ -17,6 +17,8 @@ import {setAlertSaga} from './alertSaga';
 import firebase from 'firebase';
 import { IAlert } from '../reducers/alertReducer';
 import { setAlert } from '../actions/alertActions';
+
+
 function* googleLoginSaga() {
   try {
     console.log(myFirebase.auth().currentUser?.uid);
@@ -66,6 +68,7 @@ function* googleLoginSaga() {
         yield put(setLoading(false));
       }
     }
+
   } catch (error) {
     yield put(setLoading(false));
       const alert:IAlert = {

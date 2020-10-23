@@ -46,6 +46,7 @@ import {
   setLoading,
 } from './store/actions/appCurrentActions';
 import Alert from './components/shared/Alert';
+import EditProfile from './components/edit/EditProfile';
 
 const App: React.FC = () => {
   const { loading, login } = useSelector((state: AppState) => state.appCurrent);
@@ -76,13 +77,42 @@ const App: React.FC = () => {
           <Menu />
 
           <IonRouterOutlet id="main">
-            <Route path="/dashboard/sessions" component={Sessions} exact />
-            <Route path="/dashboard/profile" component={Profile} exact />
+            <Route
+              path="/dashboard/sessions"
+              component={Sessions}
+              exact
+              render={() => (login ? <Sessions /> : <Redirect to="/" />)}
+            />
+            <Route
+              path="/dashboard/profile"
+              component={Profile}
+              exact
+              render={() => (login ? <Profile /> : <Redirect to="/" />)}
+            />
 
-            <Route path="/dashboard/account" component={Account} exact />
-            <Route path="/dashboard/packs" component={Packs} exact />
-            <Route path="/dashboard/support" component={Support} exact />
-            <Route path="/dashboard/*/edit" component={Edit} exact />
+            <Route
+              path="/dashboard/account"
+              component={Account}
+              exact
+              render={() => (login ? <Account /> : <Redirect to="/" />)}
+            />
+            <Route
+              path="/dashboard/packs"
+              component={Packs}
+              exact
+              render={() => (login ? <Packs /> : <Redirect to="/" />)}
+            />
+            <Route
+              path="/dashboard/support"
+              component={Support}
+              exact
+              render={() => (login ? <Support /> : <Redirect to="/" />)}
+            />
+            <Route
+              path="/dashboard/*/edit"
+              component={Edit}
+              render={() => (login ? <Edit /> : <Redirect to="/" />)}
+            />
             <Route path="/" component={Home} exact />
             {login ? (
               <Redirect from="/" to="/dashboard/sessions" exact />

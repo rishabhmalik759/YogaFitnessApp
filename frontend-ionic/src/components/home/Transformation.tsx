@@ -39,7 +39,7 @@ const Transformation: React.FC = () => {
           <IonItem className="mt-2">
             <IonText>
               <h3 className="light-text">Muscle Toning</h3>
-              <p className="grey-text text-2">
+              <p className="text-grey text-2">
                 Our live yoga sessions will contain posses which will help you
                 achieve those toned up muscles. An instructor will always be
                 watching so that you can understand and apply better.
@@ -49,7 +49,7 @@ const Transformation: React.FC = () => {
           <IonItem className="mt-2">
             <IonText>
               <h3 className="light-text">A flexible body</h3>
-              <p className="grey-text text-2">
+              <p className="text-grey text-2">
                 Yoga is proven to increase body flexibility. A flexible body
                 will avail improved posture, greater strength, improved physical
                 performance, a positive state of mind and much more.
@@ -59,7 +59,7 @@ const Transformation: React.FC = () => {
           <IonItem className="mt-2">
             <IonText>
               <h3 className="light-text">Reduced Stress</h3>
-              <p className="grey-text text-2">
+              <p className="text-grey text-2">
                 Yoga is proven to help you reduce stress and provide a mental
                 well-being. Stress can be revealed in many ways, including back
                 or neck pain, sleeping problems, drug abuse and inability to

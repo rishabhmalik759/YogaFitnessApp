@@ -22,6 +22,7 @@ import DashboardTopBar from '../shared/DashboardTopBar';
 import { IEditPage } from './edit';
 import './Edit.scss';
 import { editProfileOptions } from './EditProfileOptions';
+import HeaderEditPageDashboard from '../shared/HeaderEditPageDashboard';
 
 const EditProfile: React.FC = () => {
   const history = useHistory();
@@ -62,15 +63,7 @@ const EditProfile: React.FC = () => {
 
   return (
     <React.Fragment>
-      <IonHeader>
-        <DashboardTopBar />
-        <IonToolbar>
-          <IonButtons slot="start" onClick={handleBack}>
-            <IonBackButton />
-          </IonButtons>
-          <IonTitle>Edit Profile</IonTitle>
-        </IonToolbar>
-      </IonHeader>
+      <HeaderEditPageDashboard title="Edit Profile" />
 
       <IonContent fullscreen>
         <div className="col-md-8 center">

@@ -70,6 +70,18 @@ const PersonalInformation: React.FC = () => {
     editDispatch(setEditPage(editObjects.editWorkoutObj));
     history.push(editObjects.editWorkoutObj.uri);
   };
+  React.useEffect(() => {}, [
+    name,
+    avatar,
+    weight,
+    height,
+    sex,
+    age,
+    bmi,
+    level,
+    country,
+    editDispatch,
+  ]);
 
   return (
     <Fragment>

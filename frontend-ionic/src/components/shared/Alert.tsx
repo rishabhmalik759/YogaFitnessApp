@@ -11,6 +11,7 @@ const AlertComp: React.FC = () => {
         (alert) =>
           alert.id && (
             <IonToast
+              key={alert.id}
               isOpen={true}
               message={alert.msg}
               color={alert.alertType}

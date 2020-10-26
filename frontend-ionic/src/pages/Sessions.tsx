@@ -1,9 +1,9 @@
 import { IonContent, IonPage } from '@ionic/react';
 
 import React from 'react';
-import ExploreContainer from '../components/shared/ExploreContainer';
 import './Page.scss';
 import HeaderDashboard from '../components/shared/HeaderDashboard';
+import VideoConference from '../components/jitsi/VideoConference';
 
 const Sessions: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const Sessions: React.FC = () => {
         <HeaderDashboard title="Sessions" />
 
         <IonContent fullscreen>
-          <ExploreContainer name="Sessions" />
+          <VideoConference />
         </IonContent>
       </React.Fragment>
     </IonPage>

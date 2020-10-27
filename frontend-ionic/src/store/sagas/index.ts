@@ -13,11 +13,10 @@ import { myFirebase } from '../../firebase';
 import { removeUser, setUser } from '../actions/userActions';
 import { setLoading, setLogin } from '../actions/appCurrentActions';
 import { setDocument, getDocument, getCurrentUser } from './firebase';
-import {setAlertSaga} from './alertSaga';
+import { setAlertSaga } from './alertSaga';
 import firebase from 'firebase';
 import { IAlert } from '../reducers/alertReducer';
 import { setAlert } from '../actions/alertActions';
-
 
 function* googleLoginSaga() {
   try {
@@ -34,15 +33,14 @@ function* googleLoginSaga() {
       console.log('Snapshot is = ', JSON.stringify(snapshot.data()));
       if (snapshot.exists) {
         const data = snapshot.data();
-        const alert:IAlert = {
+        const alert: IAlert = {
           msg: 'User Logged in successfully.',
           alertType: 'success',
-
-        }
+        };
         yield put(setUser(data));
         yield put(setLogin(true));
         yield put(setLoading(false));
-       
+
         yield put(setAlert(alert));
       } else {
         const tempUser: firebaseTypes.IUser = {
@@ -55,27 +53,24 @@ function* googleLoginSaga() {
         };
 
         yield call(setDocument, 'Users', currentUser.uid, true, tempUser);
-       
+
         // console.log('created new user');
-        const alert:IAlert = {
+        const alert: IAlert = {
           msg: 'New user created',
           alertType: 'success',
-
-        }
+        };
         yield put(setAlert(alert));
         yield put(setUser(tempUser));
         yield put(setLogin(true));
         yield put(setLoading(false));
       }
     }
-
   } catch (error) {
     yield put(setLoading(false));
-      const alert:IAlert = {
+    const alert: IAlert = {
       msg: error.message,
       alertType: 'danger',
-
-    }
+    };
     yield put(setAlert(alert));
   }
 }
@@ -95,21 +90,19 @@ function* checkCurrentUser() {
       yield put(setLoading(false));
     } else {
       yield put(setLoading(false));
-        const alert:IAlert = {
-      msg: 'User does not exists.',
-      alertType: 'warning',
-
-    }
-    yield put(setAlert(alert));
-     // console.log('no user');
+      const alert: IAlert = {
+        msg: 'User does not exists.',
+        alertType: 'warning',
+      };
+      yield put(setAlert(alert));
+      // console.log('no user');
     }
   } catch (error) {
     yield put(setLoading(false));
-      const alert:IAlert = {
+    const alert: IAlert = {
       msg: error.message,
       alertType: 'danger',
-
-    }
+    };
     yield put(setAlert(alert));
   }
 }
@@ -122,26 +115,20 @@ function* logoutUserSaga() {
     yield put(removeUser());
     yield put(setLogin(false));
     yield put(setLoading(false));
-    const alert:IAlert = {
+    const alert: IAlert = {
       msg: 'Successfully logged out.',
       alertType: 'success',
-
-    }
+    };
     yield put(setAlert(alert));
-  
   } catch (error) {
     yield put(setLoading(false));
-    const alert:IAlert = {
+    const alert: IAlert = {
       msg: error.message,
       alertType: 'danger',
-
-    }
+    };
     yield put(setAlert(alert));
   }
 }
-
-
-
 
 export default function* rootSaga() {
   yield all([
@@ -149,6 +136,6 @@ export default function* rootSaga() {
     takeLatest(types.CHECK_CURRENT_USER, checkCurrentUser),
     takeLatest(types.LOGOUT_USER, logoutUserSaga),
     //Alert Saga
-    takeEvery(types.SET_ALERT,setAlertSaga),
+    takeEvery(types.SET_ALERT, setAlertSaga),
   ]);
 }
